@@ -3,7 +3,6 @@ package com.codemon.requestapi;
 import com.codemon.requestapi.models.Post;
 import com.codemon.requestapi.utils.Fetch;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONObject;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,8 +11,6 @@ public class Main {
             String result = Fetch.post("https://jsonplaceholder.typicode.com/posts", body);
             Post post = new ObjectMapper().readValue(result, Post.class);
             System.out.println(post);
-            JSONObject resultObj = new JSONObject(result);
-            System.out.println(resultObj.toMap());
         } catch (Exception e) {
             e.printStackTrace();
         }
